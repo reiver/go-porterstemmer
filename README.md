@@ -43,14 +43,33 @@ To use this Golang library, use with something like:
     
     func main() {
       
-      word := "waxes"
+      word := "Waxes"
       
       stem := porterstemmer.StemString(word)
       
       fmt.Printf("The word [%s] has the stem [%s].", word, stem)
     }
 
-Alternatively, if you want to be a bit more efficnent, use []rune slices instead, with code like:
+Alternatively, if you want to be a bit more efficient, use []rune slices instead, with code like:
+
+    package main
+    
+    import (
+      "fmt"
+      "github.com/reiver/go-porterstemmer"
+    )
+    
+    func main() {
+      
+      word := []rune("Waxes")
+      
+      stem := porterstemmer.Stem(word)
+      
+      fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
+    }
+
+Also alternatively, if you already know that your word is already lowercase (and you don't need
+this library to lowercase your word for you) you can instead use code like:
 
     package main
     
@@ -63,7 +82,8 @@ Alternatively, if you want to be a bit more efficnent, use []rune slices instead
       
       word := []rune("waxes")
       
-      stem := porterstemmer.Stem(word)
+      stem := porterstemmer.StemWithoutLowerCasing(word)
       
       fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
     }
+
