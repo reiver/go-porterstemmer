@@ -42,7 +42,7 @@ To use this Golang library, use with something like:
     )
     
     func main() {
-    
+      
       word := "waxes"
       
       stem := porterstemmer.StemString(word)
@@ -50,3 +50,20 @@ To use this Golang library, use with something like:
       fmt.Printf("The word [%s] has the stem [%s].", word, stem)
     }
 
+Alternatively, if you want to be a bit more efficnent, use []rune slices instead, with code like:
+
+    package main
+    
+    import (
+      "fmt"
+      "github.com/reiver/go-porterstemmer"
+    )
+    
+    func main() {
+      
+      word := []rune("waxes")
+      
+      stem := porterstemmer.Stem(word)
+      
+      fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
+    }
