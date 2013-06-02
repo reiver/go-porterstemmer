@@ -29,3 +29,25 @@ http://tartarus.org/martin/PorterStemmer/c.txt
 which differ from the original algorithm.
 
 Implemented these departures too.
+
+## Usage
+
+To use Golang library, use with something like:
+
+  package main
+  
+  import (
+    "fmt"
+    "github.com/reiver/go-porterstemmer"
+  )
+  
+  func main() {
+    
+    word := "waxes"
+    
+    stem := porterstemmer.StemString(word)
+    
+    fmt.Printf("The word [%s] has the stem [%s].", word, stem)
+    
+  }
+
