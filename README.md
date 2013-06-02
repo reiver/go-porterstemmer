@@ -29,8 +29,10 @@ http://tartarus.org/martin/PorterStemmer/output.txt   (URL #4)
 ... after reading the human-readble text over and over again to try to figure out
 what the error I made was (and doing all sorts of things to debug it) I came to the
 conclusion that the some of these tests were wrong according to the human-readable
-description of the algorithm. This led me to wonder if maybe the code has rules that
-were not in the human-readable description. Which led me to look at the source
+description of the algorithm.
+
+This led me to wonder if maybe other people's code that was passing these tests had
+rules that were not in the human-readable description. Which led me to look at the source
 code here...
 
 http://tartarus.org/martin/PorterStemmer/c.txt        (URL #5)
