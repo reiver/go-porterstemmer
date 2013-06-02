@@ -10,12 +10,15 @@ instead internally using []rune's and using the same (array) buffer used by
 the []rune slice (and sub-slices) at all steps of the algorithm.
 
 For Porter Stemmer algorithm, see:
+
 http://tartarus.org/martin/PorterStemmer/def.txt
+
 http://tartarus.org/martin/PorterStemmer/
 
 Also, since when I initially implemented it, it failed the tests at...
 
 http://tartarus.org/martin/PorterStemmer/voc.txt
+
 http://tartarus.org/martin/PorterStemmer/output.txt
 
 ... I then looked at the source code here...
