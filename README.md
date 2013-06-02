@@ -32,22 +32,21 @@ Implemented these departures too.
 
 ## Usage
 
-To use Golang library, use with something like:
+To use this Golang library, use with something like:
 
-  package main
-  
-  import (
-    "fmt"
-    "github.com/reiver/go-porterstemmer"
-  )
-  
-  func main() {
+    package main
     
-    word := "waxes"
+    import (
+      "fmt"
+      "github.com/reiver/go-porterstemmer"
+    )
     
-    stem := porterstemmer.StemString(word)
+    func main() {
     
-    fmt.Printf("The word [%s] has the stem [%s].", word, stem)
-    
-  }
+      word := "waxes"
+      
+      stem := porterstemmer.StemString(word)
+      
+      fmt.Printf("The word [%s] has the stem [%s].", word, stem)
+    }
 
