@@ -2,6 +2,9 @@
 
 A native Go clean room implementation of the Porter Stemming Algorithm.
 
+This algorithm is of interest to people doing Machine Learning or
+Natural Language Processing (NLP).
+
 This is NOT a port. This is a native Go implementation from the human-readable
 description of the algorithm.
 
