@@ -11,7 +11,7 @@ import (
 
 
 
-func TestStem(t *testing.T) {
+func TestStemString(t *testing.T) {
 
 	vocFileName := "testdata/voc.txt"
 	vocFd, err := os.Open(vocFileName)
