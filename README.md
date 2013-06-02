@@ -54,7 +54,7 @@ To use this Golang library, use with something like:
       
       stem := porterstemmer.StemString(word)
       
-      fmt.Printf("The word [%s] has the stem [%s].", word, stem)
+      fmt.Printf("The word [%s] has the stem [%s].\n", word, stem)
     }
 
 Alternatively, if you want to be a bit more efficient, use []rune slices instead, with code like:
@@ -72,7 +72,7 @@ Alternatively, if you want to be a bit more efficient, use []rune slices instead
       
       stem := porterstemmer.Stem(word)
       
-      fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
+      fmt.Printf("The word [%s] has the stem [%s].\n", string(word), string(stem))
     }
 
 Although NOTE that the above code may modify original slice (named "word" in the example) as a side
@@ -95,7 +95,7 @@ this library to lowercase your word for you) you can instead use code like:
       
       stem := porterstemmer.StemWithoutLowerCasing(word)
       
-      fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
+      fmt.Printf("The word [%s] has the stem [%s].\n", string(word), string(stem))
     }
 
 Again NOTE (like with the previous example) that the above code may modify original slice (named
