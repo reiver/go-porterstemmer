@@ -21,14 +21,17 @@ http://tartarus.org/martin/PorterStemmer/voc.txt
 
 http://tartarus.org/martin/PorterStemmer/output.txt
 
-... I then looked at the source code here...
+... after reading the human-readble text over and over again to try to figure out
+what the error I made was (and doing all sorts of things to debug it) I eventually
+then looked at the source code here...
 
 http://tartarus.org/martin/PorterStemmer/c.txt
 
-... and noticed that there are some items marked as "DEPARTURE",
-which differ from the original algorithm.
+... and noticed that there are some items marked as a "DEPARTURE",
+which differ from the original algorithm. (There are 2 of these.)
 
-Implemented these departures too.
+Implemented these departures too. (And after implementing them, the
+tests at the previous 2 URLs all passed.)
 
 ## Usage
 
