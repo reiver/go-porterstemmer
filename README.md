@@ -68,6 +68,10 @@ Alternatively, if you want to be a bit more efficient, use []rune slices instead
       fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
     }
 
+Although NOTE that the above code may modify original slice (named "word" in the example) as a side
+effect, for efficiency reasons. And that the slice named "stem" in the example above may be a
+sub-slice of the slice named "word".
+
 Also alternatively, if you already know that your word is already lowercase (and you don't need
 this library to lowercase your word for you) you can instead use code like:
 
@@ -87,3 +91,6 @@ this library to lowercase your word for you) you can instead use code like:
       fmt.Printf("The word [%s] has the stem [%s].", string(word), string(stem))
     }
 
+Again NOTE (like with the previous example) that the above code may modify original slice (named
+"word" in the example) as a side effect, for efficiency reasons. And that the slice named "stem"
+in the example above may be a sub-slice of the slice named "word".
