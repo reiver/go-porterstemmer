@@ -11,27 +11,31 @@ the []rune slice (and sub-slices) at all steps of the algorithm.
 
 For Porter Stemmer algorithm, see:
 
-http://tartarus.org/martin/PorterStemmer/def.txt
+http://tartarus.org/martin/PorterStemmer/def.txt      (URL #1)
 
-http://tartarus.org/martin/PorterStemmer/
+http://tartarus.org/martin/PorterStemmer/             (URL #2)
+
+# Departures
 
 Also, since when I initially implemented it, it failed the tests at...
 
-http://tartarus.org/martin/PorterStemmer/voc.txt
+http://tartarus.org/martin/PorterStemmer/voc.txt      (URL #3)
 
-http://tartarus.org/martin/PorterStemmer/output.txt
+http://tartarus.org/martin/PorterStemmer/output.txt   (URL #4)
 
 ... after reading the human-readble text over and over again to try to figure out
-what the error I made was (and doing all sorts of things to debug it) I eventually
-then looked at the source code here...
+what the error I made was (and doing all sorts of things to debug it) I came to the
+conclusion that the some of these tests were wrong according to the human-readable
+description of the algoritm. This led me to wonder if maybe the code has rules that
+were not in the human-readable description. Which led me to look at the source
+code here...
 
-http://tartarus.org/martin/PorterStemmer/c.txt
+http://tartarus.org/martin/PorterStemmer/c.txt        (URL #5)
 
-... and noticed that there are some items marked as a "DEPARTURE",
+... When I looked there I noticed that there are some items marked as a "DEPARTURE",
 which differ from the original algorithm. (There are 2 of these.)
 
-Implemented these departures too. (And after implementing them, the
-tests at the previous 2 URLs all passed.)
+I implemented these departures, and the tests at URL #3 and URL #4 all passed.
 
 ## Usage
 
