@@ -756,12 +756,16 @@ func step4(s []byte) []byte {
 
 			subSlice := s[:lenS-lenSuffix]
 
-			m := measure(subSlice)
+			if len(subSlice) == 0 {
+				result = s
+			} else {
+				m := measure(subSlice)
 
-			c := subSlice[len(subSlice)-1]
+				c := subSlice[len(subSlice)-1]
 
-			if 1 < m && ('s' == c || 't' == c) {
-				result = subSlice
+				if 1 < m && ('s' == c || 't' == c) {
+					result = subSlice
+				}
 			}
 		} else if suffix = step4Suffixes[12] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
