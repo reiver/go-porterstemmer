@@ -7,6 +7,19 @@ import (
 	//"unicode"
 )
 
+var step1Suffixes [10][]byte = [10][]byte{
+	[]byte("sses"),
+	[]byte("ies"),
+	[]byte("ss"),
+	[]byte("s"),
+	[]byte("eed"),
+	[]byte("ed"),
+	[]byte("at"),
+	[]byte("bl"),
+	[]byte("iz"),
+	[]byte("ing"),
+}
+
 var step2Suffixes [21][]byte = [21][]byte{
 	[]byte("ational"),
 	[]byte("tional"),
@@ -259,23 +272,23 @@ func step1a(s []byte) []byte {
 
 
 	// Do it!
-		if suffix := []byte("sses") ; hasSuffix(s, suffix) {
+		if suffix := step1Suffixes[0] ; hasSuffix(s, suffix) {
 
 			lenTrim := 2
 
 			subSlice := s[:lenS-lenTrim]
 
 			result = subSlice
-		} else if suffix := []byte("ies") ; hasSuffix(s, suffix) {
+		} else if suffix := step1Suffixes[1] ; hasSuffix(s, suffix) {
 			lenTrim := 2
 
 			subSlice := s[:lenS-lenTrim]
 
 			result = subSlice
-		} else if suffix := []byte("ss") ; hasSuffix(s, suffix) {
+		} else if suffix := step1Suffixes[2] ; hasSuffix(s, suffix) {
 
 			result = s
-		} else if suffix := []byte("s") ; hasSuffix(s, suffix) {
+		} else if suffix := step1Suffixes[3] ; hasSuffix(s, suffix) {
 
 			lenSuffix := 1
 
@@ -300,7 +313,7 @@ func step1b(s []byte) []byte {
 
 
 	// Do it!
-		if suffix := []byte("eed") ; hasSuffix(s, suffix) {
+		if suffix := step1Suffixes[4] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -312,22 +325,22 @@ func step1b(s []byte) []byte {
 
 				result = s[:lenS-lenTrim]
 			}
-		} else if suffix := []byte("ed") ; hasSuffix(s, suffix) {
+		} else if suffix := step1Suffixes[5] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
 
 			if containsVowel(subSlice) {
 
-				if suffix2 := []byte("at") ; hasSuffix(subSlice, suffix2) {
+				if suffix2 := step1Suffixes[6] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
-				} else if suffix2 := []byte("bl") ; hasSuffix(subSlice, suffix2) {
+				} else if suffix2 := step1Suffixes[7] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
-				} else if suffix2 := []byte("iz") ; hasSuffix(subSlice, suffix2) {
+				} else if suffix2 := step1Suffixes[8] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
@@ -348,26 +361,26 @@ func step1b(s []byte) []byte {
 				}
 
 			}
-		} else if suffix := []byte("ing") ; hasSuffix(s, suffix) {
+		} else if suffix := step1Suffixes[9] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
 
 			if containsVowel(subSlice) {
 
-				if suffix2 := []byte("at") ; hasSuffix(subSlice, suffix2) {
+				if suffix2 := step1Suffixes[6] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
 
 					result[len(result)-1] = 'e'
-				} else if suffix2 := []byte("bl") ; hasSuffix(subSlice, suffix2) {
+				} else if suffix2 := step1Suffixes[7] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
 
 					result[len(result)-1] = 'e'
-				} else if suffix2 := []byte("iz") ; hasSuffix(subSlice, suffix2) {
+				} else if suffix2 := step1Suffixes[8] ; hasSuffix(subSlice, suffix2) {
 					lenTrim := -1
 
 					result = s[:lenS-lenSuffix-lenTrim]
