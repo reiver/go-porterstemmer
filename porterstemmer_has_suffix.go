@@ -11,8 +11,8 @@ import (
 func TestHasSuffix(t *testing.T) {
 
 	tests := make([]struct {
-		S []rune
-		Suffix []rune
+		S []byte
+		Suffix []byte
 		Expected bool
 	}, 82)
 
@@ -21,428 +21,428 @@ func TestHasSuffix(t *testing.T) {
 	i := 0
 
 
-	tests[i].S         = []rune("ran")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("ran")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = false
 	i++
 
-	tests[i].S         = []rune("runner")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("runner")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("runnar")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("runnar")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = false
 	i++
 
-	tests[i].S         = []rune("runned")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("runned")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = false
 	i++
 
-	tests[i].S         = []rune("runnre")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("runnre")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = false
 	i++
 
-	tests[i].S         = []rune("er")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("er")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("re")
-	tests[i].Suffix    = []rune("er")
-	tests[i].Expected  = false
-	i++
-
-
-
-	tests[i].S         = []rune("ran")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("runner")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("runnar")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("runned")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("runnre")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("er")
-	tests[i].Suffix    = []rune("ER")
-	tests[i].Expected  = false
-	i++
-
-	tests[i].S         = []rune("re")
-	tests[i].Suffix    = []rune("ER")
+	tests[i].S         = []byte("re")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = false
 	i++
 
 
 
-	tests[i].S         = []rune("")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("ran")
+	tests[i].Suffix    = []byte("ER")
 	tests[i].Expected  = false
 	i++
 
-	tests[i].S         = []rune("e")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("runner")
+	tests[i].Suffix    = []byte("ER")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("runnar")
+	tests[i].Suffix    = []byte("ER")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("runned")
+	tests[i].Suffix    = []byte("ER")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("runnre")
+	tests[i].Suffix    = []byte("ER")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("er")
+	tests[i].Suffix    = []byte("ER")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("re")
+	tests[i].Suffix    = []byte("ER")
 	tests[i].Expected  = false
 	i++
 
 
 
-	tests[i].S         = []rune("caresses")
-	tests[i].Suffix    = []rune("sses")
+	tests[i].S         = []byte("")
+	tests[i].Suffix    = []byte("er")
+	tests[i].Expected  = false
+	i++
+
+	tests[i].S         = []byte("e")
+	tests[i].Suffix    = []byte("er")
+	tests[i].Expected  = false
+	i++
+
+
+
+	tests[i].S         = []byte("caresses")
+	tests[i].Suffix    = []byte("sses")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("ponies")
-	tests[i].Suffix    = []rune("ies")
+	tests[i].S         = []byte("ponies")
+	tests[i].Suffix    = []byte("ies")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("caress")
-	tests[i].Suffix    = []rune("ss")
+	tests[i].S         = []byte("caress")
+	tests[i].Suffix    = []byte("ss")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("cats")
-	tests[i].Suffix    = []rune("s")
+	tests[i].S         = []byte("cats")
+	tests[i].Suffix    = []byte("s")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("feed")
-	tests[i].Suffix    = []rune("eed")
+	tests[i].S         = []byte("feed")
+	tests[i].Suffix    = []byte("eed")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("agreed")
-	tests[i].Suffix    = []rune("eed")
+	tests[i].S         = []byte("agreed")
+	tests[i].Suffix    = []byte("eed")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("plastered")
-	tests[i].Suffix    = []rune("ed")
+	tests[i].S         = []byte("plastered")
+	tests[i].Suffix    = []byte("ed")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("bled")
-	tests[i].Suffix    = []rune("ed")
+	tests[i].S         = []byte("bled")
+	tests[i].Suffix    = []byte("ed")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("motoring")
-	tests[i].Suffix    = []rune("ing")
+	tests[i].S         = []byte("motoring")
+	tests[i].Suffix    = []byte("ing")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("sing")
-	tests[i].Suffix    = []rune("ing")
+	tests[i].S         = []byte("sing")
+	tests[i].Suffix    = []byte("ing")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("conflat")
-	tests[i].Suffix    = []rune("at")
+	tests[i].S         = []byte("conflat")
+	tests[i].Suffix    = []byte("at")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("troubl")
-	tests[i].Suffix    = []rune("bl")
+	tests[i].S         = []byte("troubl")
+	tests[i].Suffix    = []byte("bl")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("siz")
-	tests[i].Suffix    = []rune("iz")
+	tests[i].S         = []byte("siz")
+	tests[i].Suffix    = []byte("iz")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("happy")
-	tests[i].Suffix    = []rune("y")
+	tests[i].S         = []byte("happy")
+	tests[i].Suffix    = []byte("y")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("sky")
-	tests[i].Suffix    = []rune("y")
+	tests[i].S         = []byte("sky")
+	tests[i].Suffix    = []byte("y")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("relational")
-	tests[i].Suffix    = []rune("ational")
+	tests[i].S         = []byte("relational")
+	tests[i].Suffix    = []byte("ational")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("conditional")
-	tests[i].Suffix    = []rune("tional")
+	tests[i].S         = []byte("conditional")
+	tests[i].Suffix    = []byte("tional")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("rational")
-	tests[i].Suffix    = []rune("tional")
+	tests[i].S         = []byte("rational")
+	tests[i].Suffix    = []byte("tional")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("valenci")
-	tests[i].Suffix    = []rune("enci")
+	tests[i].S         = []byte("valenci")
+	tests[i].Suffix    = []byte("enci")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("hesitanci")
-	tests[i].Suffix    = []rune("anci")
+	tests[i].S         = []byte("hesitanci")
+	tests[i].Suffix    = []byte("anci")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("digitizer")
-	tests[i].Suffix    = []rune("izer")
+	tests[i].S         = []byte("digitizer")
+	tests[i].Suffix    = []byte("izer")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("conformabli")
-	tests[i].Suffix    = []rune("abli")
+	tests[i].S         = []byte("conformabli")
+	tests[i].Suffix    = []byte("abli")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("radicalli")
-	tests[i].Suffix    = []rune("alli")
+	tests[i].S         = []byte("radicalli")
+	tests[i].Suffix    = []byte("alli")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("differentli")
-	tests[i].Suffix    = []rune("entli")
+	tests[i].S         = []byte("differentli")
+	tests[i].Suffix    = []byte("entli")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("vileli")
-	tests[i].Suffix    = []rune("eli")
+	tests[i].S         = []byte("vileli")
+	tests[i].Suffix    = []byte("eli")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("analogousli")
-	tests[i].Suffix    = []rune("ousli")
+	tests[i].S         = []byte("analogousli")
+	tests[i].Suffix    = []byte("ousli")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("vietnamization")
-	tests[i].Suffix    = []rune("ization")
+	tests[i].S         = []byte("vietnamization")
+	tests[i].Suffix    = []byte("ization")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("predication")
-	tests[i].Suffix    = []rune("ation")
+	tests[i].S         = []byte("predication")
+	tests[i].Suffix    = []byte("ation")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("operator")
-	tests[i].Suffix    = []rune("ator")
+	tests[i].S         = []byte("operator")
+	tests[i].Suffix    = []byte("ator")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("feudalism")
-	tests[i].Suffix    = []rune("alism")
+	tests[i].S         = []byte("feudalism")
+	tests[i].Suffix    = []byte("alism")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("decisiveness")
-	tests[i].Suffix    = []rune("iveness")
+	tests[i].S         = []byte("decisiveness")
+	tests[i].Suffix    = []byte("iveness")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("hopefulness")
-	tests[i].Suffix    = []rune("fulness")
+	tests[i].S         = []byte("hopefulness")
+	tests[i].Suffix    = []byte("fulness")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("callousness")
-	tests[i].Suffix    = []rune("ousness")
+	tests[i].S         = []byte("callousness")
+	tests[i].Suffix    = []byte("ousness")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("formaliti")
-	tests[i].Suffix    = []rune("aliti")
+	tests[i].S         = []byte("formaliti")
+	tests[i].Suffix    = []byte("aliti")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("sensitiviti")
-	tests[i].Suffix    = []rune("iviti")
+	tests[i].S         = []byte("sensitiviti")
+	tests[i].Suffix    = []byte("iviti")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("sensibiliti")
-	tests[i].Suffix    = []rune("biliti")
+	tests[i].S         = []byte("sensibiliti")
+	tests[i].Suffix    = []byte("biliti")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("triplicate")
-	tests[i].Suffix    = []rune("icate")
+	tests[i].S         = []byte("triplicate")
+	tests[i].Suffix    = []byte("icate")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("formative")
-	tests[i].Suffix    = []rune("ative")
+	tests[i].S         = []byte("formative")
+	tests[i].Suffix    = []byte("ative")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("formalize")
-	tests[i].Suffix    = []rune("alize")
+	tests[i].S         = []byte("formalize")
+	tests[i].Suffix    = []byte("alize")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("electriciti")
-	tests[i].Suffix    = []rune("iciti")
+	tests[i].S         = []byte("electriciti")
+	tests[i].Suffix    = []byte("iciti")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("electrical")
-	tests[i].Suffix    = []rune("ical")
+	tests[i].S         = []byte("electrical")
+	tests[i].Suffix    = []byte("ical")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("hopeful")
-	tests[i].Suffix    = []rune("ful")
+	tests[i].S         = []byte("hopeful")
+	tests[i].Suffix    = []byte("ful")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("goodness")
-	tests[i].Suffix    = []rune("ness")
+	tests[i].S         = []byte("goodness")
+	tests[i].Suffix    = []byte("ness")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("revival")
-	tests[i].Suffix    = []rune("al")
+	tests[i].S         = []byte("revival")
+	tests[i].Suffix    = []byte("al")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("allowance")
-	tests[i].Suffix    = []rune("ance")
+	tests[i].S         = []byte("allowance")
+	tests[i].Suffix    = []byte("ance")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("inference")
-	tests[i].Suffix    = []rune("ence")
+	tests[i].S         = []byte("inference")
+	tests[i].Suffix    = []byte("ence")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("airliner")
-	tests[i].Suffix    = []rune("er")
+	tests[i].S         = []byte("airliner")
+	tests[i].Suffix    = []byte("er")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("gyroscopic")
-	tests[i].Suffix    = []rune("ic")
+	tests[i].S         = []byte("gyroscopic")
+	tests[i].Suffix    = []byte("ic")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("adjustable")
-	tests[i].Suffix    = []rune("able")
+	tests[i].S         = []byte("adjustable")
+	tests[i].Suffix    = []byte("able")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("defensible")
-	tests[i].Suffix    = []rune("ible")
+	tests[i].S         = []byte("defensible")
+	tests[i].Suffix    = []byte("ible")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("irritant")
-	tests[i].Suffix    = []rune("ant")
+	tests[i].S         = []byte("irritant")
+	tests[i].Suffix    = []byte("ant")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("replacement")
-	tests[i].Suffix    = []rune("ement")
+	tests[i].S         = []byte("replacement")
+	tests[i].Suffix    = []byte("ement")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("adjustment")
-	tests[i].Suffix    = []rune("ment")
+	tests[i].S         = []byte("adjustment")
+	tests[i].Suffix    = []byte("ment")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("dependent")
-	tests[i].Suffix    = []rune("ent")
+	tests[i].S         = []byte("dependent")
+	tests[i].Suffix    = []byte("ent")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("adoption")
-	tests[i].Suffix    = []rune("ion")
+	tests[i].S         = []byte("adoption")
+	tests[i].Suffix    = []byte("ion")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("homologou")
-	tests[i].Suffix    = []rune("ou")
+	tests[i].S         = []byte("homologou")
+	tests[i].Suffix    = []byte("ou")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("communism")
-	tests[i].Suffix    = []rune("ism")
+	tests[i].S         = []byte("communism")
+	tests[i].Suffix    = []byte("ism")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("activate")
-	tests[i].Suffix    = []rune("ate")
+	tests[i].S         = []byte("activate")
+	tests[i].Suffix    = []byte("ate")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("angulariti")
-	tests[i].Suffix    = []rune("iti")
+	tests[i].S         = []byte("angulariti")
+	tests[i].Suffix    = []byte("iti")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("homologous")
-	tests[i].Suffix    = []rune("ous")
+	tests[i].S         = []byte("homologous")
+	tests[i].Suffix    = []byte("ous")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("effective")
-	tests[i].Suffix    = []rune("ive")
+	tests[i].S         = []byte("effective")
+	tests[i].Suffix    = []byte("ive")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("bowdlerize")
-	tests[i].Suffix    = []rune("ize")
+	tests[i].S         = []byte("bowdlerize")
+	tests[i].Suffix    = []byte("ize")
 	tests[i].Expected  = true
 	i++
 
 
 
-	tests[i].S         = []rune("probate")
-	tests[i].Suffix    = []rune("e")
+	tests[i].S         = []byte("probate")
+	tests[i].Suffix    = []byte("e")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("rate")
-	tests[i].Suffix    = []rune("e")
+	tests[i].S         = []byte("rate")
+	tests[i].Suffix    = []byte("e")
 	tests[i].Expected  = true
 	i++
 
-	tests[i].S         = []rune("cease")
-	tests[i].Suffix    = []rune("e")
+	tests[i].S         = []byte("cease")
+	tests[i].Suffix    = []byte("e")
 	tests[i].Expected  = true
 	i++
 
