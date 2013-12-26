@@ -7,6 +7,61 @@ import (
 	"unicode"
 )
 
+var step2Suffixes [21][]rune = [21][]rune{
+	[]rune("ational"),
+	[]rune("tional"),
+	[]rune("enci"),
+	[]rune("anci"),
+	[]rune("izer"),
+	[]rune("bli"),
+	[]rune("alli"),
+	[]rune("entli"),
+	[]rune("eli"),
+	[]rune("ousli"),
+	[]rune("ization"),
+	[]rune("ation"),
+	[]rune("ator"),
+	[]rune("alism"),
+	[]rune("iveness"),
+	[]rune("fulness"),
+	[]rune("ousness"),
+	[]rune("aliti"),
+	[]rune("iviti"),
+	[]rune("biliti"),
+	[]rune("logi"),
+}
+
+var step3Suffixes [7][]rune = [7][]rune{
+	[]rune("icate"),
+	[]rune("ative"),
+	[]rune("alize"),
+	[]rune("iciti"),
+	[]rune("ical"),
+	[]rune("ful"),
+	[]rune("ness"),
+}
+
+var step4Suffixes [19][]rune = [19][]rune{
+	[]rune("al"),
+	[]rune("ance"),
+	[]rune("ence"),
+	[]rune("er"),
+	[]rune("ic"),
+	[]rune("able"),
+	[]rune("ible"),
+	[]rune("ant"),
+	[]rune("ement"),
+	[]rune("ment"),
+	[]rune("ent"),
+	[]rune("ion"),
+	[]rune("ou"),
+	[]rune("ism"),
+	[]rune("ate"),
+	[]rune("iti"),
+	[]rune("ous"),
+	[]rune("ive"),
+	[]rune("ize"),
+}
 
 
 func isConsonant(s []rune, i int) bool {
@@ -384,100 +439,100 @@ func step2(s []rune) []rune {
 
 
 	// Do it!
-		if suffix := []rune("ational") ; hasSuffix(s, suffix) {
+		if suffix := step2Suffixes[0] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-5] = 'e'
 				result = result[:lenS-4]
 			}
-		} else if suffix := []rune("tional") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[1] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = result[:lenS-2]
 			}
-		} else if suffix := []rune("enci") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[2] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-1] = 'e'
 			}
-		} else if suffix := []rune("anci") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[3] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-1] = 'e'
 			}
-		} else if suffix := []rune("izer") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[4] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-1]
 			}
-		} else if suffix := []rune("bli") ; hasSuffix(s, suffix) { // --DEPARTURE--
+		} else if suffix := step2Suffixes[5] ; hasSuffix(s, suffix) { // --DEPARTURE--
 //		} else if suffix := []rune("abli") ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-1] = 'e'
 			}
-		} else if suffix := []rune("alli") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[6] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-2]
 			}
-		} else if suffix := []rune("entli") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[7] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-2]
 			}
-		} else if suffix := []rune("eli") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[8] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-2]
 			}
-		} else if suffix := []rune("ousli") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[9] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-2]
 			}
-		} else if suffix := []rune("ization") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[10] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-5] = 'e'
 
 				result = s[:lenS-4]
 			}
-		} else if suffix := []rune("ation") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[11] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-3] = 'e'
 
 				result = s[:lenS-2]
 			}
-		} else if suffix := []rune("ator") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[12] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-2] = 'e'
 
 				result = s[:lenS-1]
 			}
-		} else if suffix := []rune("alism") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[13] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-3]
 			}
-		} else if suffix := []rune("iveness") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[14] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-4]
 			}
-		} else if suffix := []rune("fulness") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[15] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-4]
 			}
-		} else if suffix := []rune("ousness") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[16] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-4]
 			}
-		} else if suffix := []rune("aliti") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[17] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result = s[:lenS-3]
 			}
-		} else if suffix := []rune("iviti") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[18] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-3] = 'e'
 
 				result = result[:lenS-2]
 			}
-		} else if suffix := []rune("biliti") ; hasSuffix(s, suffix) {
+		} else if suffix := step2Suffixes[19] ; hasSuffix(s, suffix) {
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				result[lenS-5] = 'l'
 				result[lenS-4] = 'e'
 
 				result = result[:lenS-3]
 			}
-		} else if suffix := []rune("logi") ; hasSuffix(s, suffix) { // --DEPARTURE--
+		} else if suffix := step2Suffixes[20] ; hasSuffix(s, suffix) { // --DEPARTURE--
 			if 0 < measure(s[:lenS-len(suffix)]) {
 				lenTrim := 1
 
@@ -500,13 +555,13 @@ func step3(s []rune) []rune {
 
 
 	// Do it!
-		if suffix := []rune("icate") ; hasSuffix(s, suffix) {
+		if suffix := step3Suffixes[0] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			if 0 < measure(s[:lenS-lenSuffix]) {
 				result = result[:lenS-3]
 			}
-		} else if suffix := []rune("ative") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[1] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -516,25 +571,25 @@ func step3(s []rune) []rune {
 			if 0 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("alize") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[2] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			if 0 < measure(s[:lenS-lenSuffix]) {
 				result = result[:lenS-3]
 			}
-		} else if suffix := []rune("iciti") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[3] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			if 0 < measure(s[:lenS-lenSuffix]) {
 				result = result[:lenS-3]
 			}
-		} else if suffix := []rune("ical") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[4] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			if 0 < measure(s[:lenS-lenSuffix]) {
 				result = result[:lenS-2]
 			}
-		} else if suffix := []rune("ful") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[5] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -544,7 +599,7 @@ func step3(s []rune) []rune {
 			if 0 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ness") ; hasSuffix(s, suffix) {
+		} else if suffix := step3Suffixes[6] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -571,7 +626,7 @@ func step4(s []rune) []rune {
 
 
 	// Do it!
-		if suffix := []rune("al") ; hasSuffix(s, suffix) {
+		if suffix := step4Suffixes[0] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -581,7 +636,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = result[:lenS-lenSuffix]
 			}
-		} else if suffix := []rune("ance") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[1] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -591,7 +646,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = result[:lenS-lenSuffix]
 			}
-		} else if suffix := []rune("ence") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[2] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -601,7 +656,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = result[:lenS-lenSuffix]
 			}
-		} else if suffix := []rune("er") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[3] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -611,7 +666,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ic") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[4] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -621,7 +676,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("able") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[5] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -631,7 +686,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ible") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[6] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -641,7 +696,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ant") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[7] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -651,7 +706,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ement") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[8] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -661,7 +716,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ment") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[9] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -671,7 +726,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ent") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[10] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -681,7 +736,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ion") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[11] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -693,7 +748,7 @@ func step4(s []rune) []rune {
 			if 1 < m && ('s' == c || 't' == c) {
 				result = subSlice
 			}
-		} else if suffix := []rune("ou") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[12] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -703,7 +758,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ism") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[13] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -713,7 +768,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ate") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[14] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -723,7 +778,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("iti") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[15] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -733,7 +788,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ous") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[16] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -743,7 +798,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ive") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[17] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
@@ -753,7 +808,7 @@ func step4(s []rune) []rune {
 			if 1 < m {
 				result = subSlice
 			}
-		} else if suffix := []rune("ize") ; hasSuffix(s, suffix) {
+		} else if suffix := step4Suffixes[18] ; hasSuffix(s, suffix) {
 			lenSuffix := len(suffix)
 
 			subSlice := s[:lenS-lenSuffix]
