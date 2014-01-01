@@ -105,7 +105,7 @@ func hasSuffix(s, suffix []rune) bool {
 	lenSMinusOne      := len(s)      - 1
 	lenSuffixMinusOne := len(suffix) - 1
 
-	if lenSMinusOne < lenSuffixMinusOne {
+	if lenSMinusOne <= lenSuffixMinusOne {
 		return false
 	} else if s[lenSMinusOne] != suffix[lenSuffixMinusOne] { // I suspect checking this first should speed this function up in practice.
 /////// RETURN
