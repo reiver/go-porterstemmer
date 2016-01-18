@@ -784,7 +784,9 @@ func step5a(s []rune) []rune {
 			lenSuffix := 1
 
 			subSlice := s[:lenS-lenSuffix]
-
+			if len(subSlice) == 0 {
+				return result
+			}
 			m := measure(subSlice)
 
 			if 1 < m {
