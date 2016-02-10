@@ -780,7 +780,7 @@ func step5a(s []rune) []rune {
 
 
 	// Do it!
-		if 'e' == s[lenS-1] {
+		if 2 < lenS && 'e' == s[lenS-1] {
 			lenSuffix := 1
 
 			subSlice := s[:lenS-lenSuffix]
