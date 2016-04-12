@@ -3,7 +3,6 @@ package porterstemmer
 
 
 import (
-	"fmt"
 	"testing"
 )
 
