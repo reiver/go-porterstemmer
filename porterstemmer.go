@@ -789,8 +789,10 @@ func step5a(s []rune) []rune {
 
 			if 1 < m {
 				result = subSlice
-			} else if c := subSlice[len(subSlice)-1] ; 1 == m && !( hasConsonantVowelConsonantSuffix(subSlice) && 'w' != c && 'x' != c && 'y' != c)  {
-				result = subSlice
+			} else if 1 == m {
+					if c := subSlice[len(subSlice)-1] ; !( hasConsonantVowelConsonantSuffix(subSlice) && 'w' != c && 'x' != c && 'y' != c)  {
+					result = subSlice
+				}
 			}
 		}
 
