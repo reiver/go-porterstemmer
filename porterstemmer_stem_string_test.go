@@ -1,17 +1,13 @@
 package porterstemmer
 
-
-
 import (
 	"bufio"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
-    "testing"
+	"testing"
 )
-
-
 
 func TestStemString(t *testing.T) {
 
@@ -24,10 +20,9 @@ func TestStemString(t *testing.T) {
 	_, err = os.Stat(testDataDirName)
 	if nil != err {
 		t.Errorf("The test data folder ([%s]) does not exists (and could not create it). Received error: [%v]", testDataDirName, err)
-/////// RETURN
+		/////// RETURN
 		return
 	}
-
 
 	vocFileName := testDataDirName + "/voc.txt"
 	_, err = os.Stat(vocFileName)
@@ -38,31 +33,29 @@ func TestStemString(t *testing.T) {
 		resp, err := http.Get(vocHref)
 		if nil != err {
 			t.Errorf("Could not download test file (from web) from URL: [%s]. Received error: [%v]", vocHref, err)
-/////////// RETURN
+			/////////// RETURN
 			return
 		}
 
 		respBody, err := ioutil.ReadAll(resp.Body)
 		if nil != err {
 			t.Errorf("Error loading the contents of from URL: [%s]. Received error: [%v].", vocHref, err)
-/////////// RETURN
+			/////////// RETURN
 			return
 		}
 
 		_ = ioutil.WriteFile(vocFileName, respBody, 0644)
-		
+
 	}
 	vocFd, err := os.Open(vocFileName)
 	if nil != err {
 		t.Errorf("Could NOT open testdata file: [%s]. Received error: [%v]", vocFileName, err)
-/////// RETURN
+		/////// RETURN
 		return
 	}
 	defer vocFd.Close()
 
 	voc := bufio.NewReaderSize(vocFd, 1024)
-
-
 
 	outFileName := testDataDirName + "/output.txt"
 	_, err = os.Stat(outFileName)
@@ -73,55 +66,49 @@ func TestStemString(t *testing.T) {
 		resp, err := http.Get(outHref)
 		if nil != err {
 			t.Errorf("Could not download test file (from web) from URL: [%s]. Received error: [%v]", outHref, err)
-/////////// RETURN
+			/////////// RETURN
 			return
 		}
 
 		respBody, err := ioutil.ReadAll(resp.Body)
 		if nil != err {
 			t.Errorf("Error loading the contents of from URL: [%s]. Received error: [%v].", outHref, err)
-/////////// RETURN
+			/////////// RETURN
 			return
 		}
 
 		_ = ioutil.WriteFile(outFileName, respBody, 0644)
-		
+
 	}
 	outFd, err := os.Open(outFileName)
 	if nil != err {
 		t.Errorf("Could NOT open testdata file: [%s]. Received error: [%v]", outFileName, err)
-/////// RETURN
+		/////// RETURN
 		return
 	}
 	defer outFd.Close()
 
 	out := bufio.NewReaderSize(outFd, 1024)
 
-
-
 	for {
 
 		vocS, err := voc.ReadString('\n')
 		if nil != err {
-	/////// BREAK
+			/////// BREAK
 			break
 		}
 
 		vocS = strings.Trim(vocS, "\n\r\t ")
 
-
-
 		expected, err := out.ReadString('\n')
 		if nil != err {
 			t.Errorf("Received unexpected error when trying to read a line from [%s]. Received error: [%v]", outFileName, err)
-	/////// BREAK
+			/////// BREAK
 			break
 
 		}
 
 		expected = strings.Trim(expected, "\n\r\t ")
-
-
 
 		actual := StemString(vocS)
 		if expected != actual {

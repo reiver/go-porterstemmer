@@ -1,12 +1,8 @@
 package porterstemmer
 
-
-
 import (
 	"testing"
 )
-
-
 
 // Test for issue listed here:
 // https://github.com/reiver/go-porterstemmer/issues/1
@@ -22,7 +18,6 @@ func TestStemStringIon(t *testing.T) {
 		t.Errorf("Input: [%s] -> Actual: [%s]. Expected: [%s]", s, actual, expected)
 	}
 }
-
 
 // Test for issue listed here:
 // https://github.com/reiver/go-porterstemmer/pull/10
